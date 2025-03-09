@@ -1,0 +1,27 @@
+{
+  "name": "coinbase-api-proxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js",
+    "deploy": "npm run build && cd dist && zip -r function.zip index.js && cd .. && aws lambda update-function-code --function-name coinbase-api-proxy --zip-file fileb://dist/function.zip --region eu-north-1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-lambda": "^3.758.0",
+    "aws-sdk": "^2.1692.0",
+    "axios": "^1.8.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.147",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.13.10",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.2"
+  }
+}
